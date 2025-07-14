@@ -120,11 +120,11 @@ document.getElementById("tospliced").innerHTML = spliced;
 
 //  Array indexOf()
 const list = ["Apple", "Orange", "Apple", "Mango"];
-const position = list.indexOf("Apple")+1;
+const position = list.indexOf("Apple") + 1;
 document.getElementById("indexof").innerHTML = position;
 
 // Array lastIndexOf
-const lastindex = list.lastIndexOf("Apple")+1;
+const lastindex = list.lastIndexOf("Apple") + 1;
 document.getElementById("indexof").innerHTML = lastindex;
 
 // Array includes
@@ -135,7 +135,7 @@ document.getElementById("includes").innerHTML = include;
 const numbers = [4, 9, 13, 16, 21, 25, 29, 21, 32, 38];
 const comp = numbers.find(myfunction);
 document.getElementById("find").innerHTML = comp;
-function myfunction(value){
+function myfunction(value) {
     return value > 18;
 }
 
@@ -151,3 +151,101 @@ document.getElementById("findlast").innerHTML = last;
 // Array findLastIndex()
 const pos = temp.findLastIndex(x => x > 40);
 document.getElementById("findlastindex").innerHTML = pos;
+
+// Array Sort()
+
+// Alphabetic Sort
+// Array Sort
+const fru = ["Banana", "Orange", "Apple", "Mango"];
+fru.sort();
+document.getElementById("sort").innerHTML = fru;
+
+// Array Reverse()
+const frut = ["Banana", "Orange", "Apple", "Mango"];
+frut.reverse();
+document.getElementById("reverse").innerHTML = frut;
+
+// Array toSorted()
+/*The difference between toSorted() and sort() is that the toSorted() method creates a new array,
+     keeping the original array unchanged, while the sort() method alters the original array.*/
+const mont = ["Jan", "Feb", "Mar", "Apr"];
+const sorted = mont.toSorted();
+document.getElementById("tosorted").innerHTML = sorted;
+
+//  Array toReversed()
+/*The difference between toReversed() and reverse() is that the toReversed() method creates a new array, 
+keeping the original array unchanged, while the reverse() method alters the original array.*/
+const reversed = mont.toReversed();
+document.getElementById("toreversed").innerHTML = reversed;
+
+// Numeric Sort
+// Array Numeric Sort
+const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});
+document.getElementById("numeric_sort").innerHTML = points;
+
+// Array Random sort
+points.sort(function(){return 0.5 - Math.random()});
+document.getElementById("random_sort").innerHTML = points;
+
+// Array Math.min()
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+document.getElementById("math_min").innerHTML = myArrayMin(points);
+
+// Array Math.max()
+function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}
+document.getElementById("math_max").innerHTML = myArrayMax(points);
+
+// Array Home_made_min
+
+// Array Home_made_max
+
+// Array Iteration Methods
+// Array forEach()
+const num = [45, 4, 9, 16, 25];
+let txt = "";
+function myfun(value, array , index){
+    txt += value + "<br>"
+}
+num.forEach(myfun);
+document.getElementById("foreach").innerHTML = txt;
+
+// Array Map
+const num1 = [45, 4, 9, 16, 25];
+const num2 = num1.map(my_function);
+function my_function(value, array , index){
+    return value * 2;
+}
+document.getElementById("map").innerHTML = num2;
+
+// Array filter()
+const age = num1.filter(myFunction);
+function myFunction(value){
+    return value > 18;
+}
+document.getElementById("filter").innerHTML = age;
+
+// Array reduce()
+const numb = [45, 4, 9, 16, 25];
+const sum = numb.reduce(myfunct);
+function myfunct(total, value , index ,array){
+    return total + value;
+}
+document.getElementById("reduce").innerHTML = sum;
+
+// Array reduceRight()
+// It goes from right to left
+const reduce = numb.reduceRight(myfunct);
+document.getElementById("reduceright").innerHTML = reduce;
+
+// Array every()
+const test = numb.every(every)
+function every(value, array, index){
+    return value > 18;
+}
+document.getElementById("every").innerHTML = test;
+
