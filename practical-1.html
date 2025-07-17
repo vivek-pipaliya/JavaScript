@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,7 +100,6 @@
         }
 
         .form {
-
             display: flex;
             justify-content: space-between;
             position: relative;
@@ -208,21 +208,25 @@
     <main>
         <section class="container field">
             <div class="inputbox">
-                <input class="need" type="text" placeholder="What do you need to do?">
-                <button class="button">ADD</button>
+                <input id="datainput" class="need" type="text" placeholder="What do you need to do?">
+                <button id="addbutton" class="button">ADD</button>
             </div>
+
         </section>
         <section class="container">
             <div class="list">
-                <div class="form">
-                    <label class="radio">Personal Work No. 1
-                        <input class="input" type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="button">
-                        <img src="./images/delete.svg" alt="delete">
-                    </button>
+                <div id="todolist">
+                    <!-- <div class="form">
+                        <label class="radio">Personal Work No. 1
+                            <input class="input" type="checkbox" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="button">
+                            <img src="./images/delete.svg" alt="delete">
+                        </button>
+                    </div> -->
                 </div>
+                <p id="show"></p>
                 <div class="remove">
                     <img src="./images/remove.svg" alt="remove" width="28px" height="34px">
                     <p class="clear">Clear Completed</p>
@@ -232,4 +236,5 @@
     </main>
     <script src="practical-1.js"></script>
 </body>
+
 </html>
