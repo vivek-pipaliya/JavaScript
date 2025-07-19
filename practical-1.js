@@ -7,12 +7,15 @@ let checks = document.querySelectorAll('.delete-button');
 let myarray = []; // created array for storing input
 const valueBack = localStorage.getItem("myarray");  //taking values from local storage 
 
+function render(){
+        
+}
 
 function checkIndex(event) {
-    // console.log(event.target.id);
-    if(x > ){
-        myarray.splice(x , 1)
-    }
+    //console.log(event.target.id);
+    const index = Number(   event.target.id);  // get index from button id
+    myarray.splice(index, 1)
+    localStorage.setItem("myarray", JSON.stringify(myarray));  // update storage
 }
 
 window.onload = function () {
@@ -25,18 +28,18 @@ window.onload = function () {
                             <input class="input" type="checkbox" name="radio">
                             <span class="checkmark"></span>
                         </label>
-                        <button class="button delete-button" id="${valueGet[x]}">
-                            <img src="./images/delete.svg" alt="delete" id="${valueGet[x]}">
+                        <button class="button delete-button">
+                            <img src="./images/delete.svg" alt="delete">
                         </button>
-                    </div> ` 
+                    </div> `
             document.getElementById("todolist").innerHTML += listHtml; //it will print the value which is stored in myarray var
         }
     }
 
     checks = document.querySelectorAll('.delete-button');
-
     checks.forEach(function (check) {
         check.addEventListener('click', checkIndex);
+
     })
 }
 
@@ -58,9 +61,9 @@ addbutton.addEventListener('click', function () {
         document.getElementById("todolist").innerHTML += listHtml; //it will print the value which is stored in myarray var
 
         checks = document.querySelectorAll('.delete-button');
-
         checks.forEach(function (check) {
             check.addEventListener('click', checkIndex);
+
         })
     }
 
