@@ -114,23 +114,19 @@ function checkIndex(event) {
     });
 }
 
-function edit(key, value) {
-    const index = key.target.id;  // get index from button id
-    console.log('key object', index);
-    // myarray.with(index , "");
-    for (let x = 0; x < myarray.length; x++) {
-            if (myarray[x].Key == key) {
-                myarray[x].Value = value;
-                break;
-            }
-            console.log('hell' , x)
-            localStorage.setItem("myarray", JSON.stringify(myarray));  // update storage
+function edit(event) {
+    const index = event.target.id;  // get index from button id
+    // console.log('hii', index)
+    datainput.value = myarray[index]; // takes value from array of specified index and puts inside input box
+    console.log('hello', datainput.value)
+    // editIndex = index;  // stores the index of the value that you are editing
+    // console.log('hello', editIndex)
     document.getElementById("todolist").innerHTML = "";
     for (let x = 0; x < myarray.length; x++) {
         let listHtml = ` <div class="form">
                         <label class="radio">${myarray[x]}
                             <input class="input edit-button" type="checkbox" id="${x}" name="radio">
-                            <span class="checkmark" ></span>
+                            <span class="checkmark"></span>
                         </label>
                         <button class="button delete-button">
                             <img src="./images/delete.svg" alt="delete" id="${x}">
@@ -138,10 +134,19 @@ function edit(key, value) {
                     </div> `
         document.getElementById("todolist").innerHTML += listHtml; //it will print the value which is stored in myarray var
     }
+
+    //for edit button
+    editvalue = document.querySelectorAll(".edit-button");
+    editvalue.forEach(function (check) {
+        check.addEventListener("click", edit);
+    });
+
+    // for delete button
+    checks = document.querySelectorAll(".delete-button");
+    checks.forEach(function (check) {
+        check.addEventListener("click", checkIndex);
+    });
 }
 
-editvalue = document.querySelectorAll(".edit-button");
-editvalue.forEach(function (check) {
-    check.addEventListener("click", edit);
-});
-}
+
+
