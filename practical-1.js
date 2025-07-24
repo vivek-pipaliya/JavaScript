@@ -6,8 +6,8 @@ let checks = document.querySelectorAll('.delete-button');
 let editvalue = document.querySelectorAll('.edit-button');
 
 
-
 let myarray = []; // created array for storing input
+let editIndex = null;
 const valueBack = localStorage.getItem("myarray");  //taking values from local storage 
 
 // load when page is run or open
@@ -47,7 +47,13 @@ window.onload = function () {
 addbutton.addEventListener('click', function () {
     const valuetoadd = datainput.value; //created variable to store input 
     if (valuetoadd) {
-        myarray.push(valuetoadd); //it will add array to valuetoadd var
+        if (editIndex !== null) {
+            myarray[editIndex] = valuetoadd;
+            editIndex = null;
+        }
+        else {
+            myarray.push(valuetoadd); //it will add array to valuetoadd var
+        }
         datainput.value = "";  //it will clear the input field after addiing value
         localStorage.setItem("myarray", JSON.stringify(myarray));
         document.getElementById("todolist").innerHTML = "";
@@ -119,7 +125,7 @@ function edit(event) {
     // console.log('hii', index)
     datainput.value = myarray[index]; // takes value from array of specified index and puts inside input box
     console.log('hello', datainput.value)
-    // editIndex = index;  // stores the index of the value that you are editing
+    editIndex = index;  // stores the index of the value that you are editing
     // console.log('hello', editIndex)
     document.getElementById("todolist").innerHTML = "";
     for (let x = 0; x < myarray.length; x++) {
