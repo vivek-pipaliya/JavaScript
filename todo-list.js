@@ -124,7 +124,7 @@ function edit(event) {
     const index = event.target.id;  // get index from button id
     // console.log('hii', index)
     datainput.value = myarray[index]; // takes value from array of specified index and puts inside input box
-    console.log('hello', datainput.value)
+    // console.log('hello', datainput.value)
     editIndex = index;  // stores the index of the value that you are editing
     // console.log('hello', editIndex)
     document.getElementById("todolist").innerHTML = "";
