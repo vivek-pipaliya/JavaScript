@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIK TAK TOE</title>
+
+    <style>
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 200px;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .flex button {
+            padding: 30px 30px;
+            margin: 2px;
+            cursor: pointer;
+        }
+
+        .for {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .restart {
+            padding: 14px 25px;
+            background-color: blue;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <h1>TIC TAC TOE</h1>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+    </div>
+    <div class="for">
+        <h2>Winner : </h2>
+        <button class="restart">RESTART GAME</button>
+    </div>
+
+    <script src="tic_tac_toe.js"></script>
+</body>
+
+</html>
