@@ -4,7 +4,7 @@ const show = document.getElementById("show");  // display input
 const addbutton = document.getElementById("addbutton");  //when user click the button it will add value in array
 let checks = document.querySelectorAll('.delete-button');
 let editvalue = document.querySelectorAll('.edit-button');
-
+// let emptyarray = document.getElementById('emptyarray');
 
 let myarray = []; // created array for storing input
 let editIndex = null;
@@ -41,6 +41,12 @@ window.onload = function () {
     editvalue.forEach(function (check) {
         check.addEventListener("click", edit);
     });
+
+    // for clear all items
+    remove = document.querySelectorAll(".remove");
+    remove.forEach(function (remove) {
+        remove.addEventListener("click", emptyarray)
+    })
 }
 
 // Add value function
@@ -50,6 +56,7 @@ addbutton.addEventListener('click', function () {
         if (editIndex !== null) {
             myarray[editIndex] = valuetoadd;
             editIndex = null;
+            addbutton.innerHTML = "ADD"; // when value is changed the button will converted back from edit to add
         }
         else {
             myarray.push(valuetoadd); //it will add array to valuetoadd var
@@ -81,6 +88,12 @@ addbutton.addEventListener('click', function () {
         editvalue.forEach(function (check) {
             check.addEventListener("click", edit);
         });
+
+        // for clear all items
+        remove = document.querySelectorAll(".remove");
+        remove.forEach(function (remove) {
+            remove.addEventListener("click", emptyarray)
+        })
     }
     // storing the array in local storage
     const string = JSON.stringify(myarray);  // convert array in string
@@ -118,6 +131,12 @@ function checkIndex(event) {
     editvalue.forEach(function (check) {
         check.addEventListener("click", edit);
     });
+
+    // for clear all items
+    remove = document.querySelectorAll(".remove");
+    remove.forEach(function (remove) {
+        remove.addEventListener("click", emptyarray)
+    })
 }
 
 function edit(event) {
@@ -127,6 +146,7 @@ function edit(event) {
     // console.log('hello', datainput.value)
     editIndex = index;  // stores the index of the value that you are editing
     // console.log('hello', editIndex)
+    addbutton.innerText = "EDIT";  // change ADD button to EDIT button when user try to edit value
     document.getElementById("todolist").innerHTML = "";
     for (let x = 0; x < myarray.length; x++) {
         let listHtml = ` <div class="form">
@@ -152,7 +172,23 @@ function edit(event) {
     checks.forEach(function (check) {
         check.addEventListener("click", checkIndex);
     });
+
+    // for clear all items
+    remove = document.querySelectorAll(".remove");
+    remove.forEach(function (remove) {
+        remove.addEventListener("click", emptyarray)
+    })
 }
 
+function emptyarray() {
+    myarray.length = 0; // clear all item of array
+    // console.log(myarray)
+    localStorage.removeItem("myarray"); // for clear all items from local storage
+    document.getElementById("todolist").innerHTML = "";
 
+    remove = document.querySelectorAll(".remove");
+    remove.forEach(function (remove) {
+        remove.addEventListener("click", emptyarray)
+    })
+}
 
