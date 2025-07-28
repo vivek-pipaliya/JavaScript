@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIK TAK TOE</title>
+    <title>TIC TAC TOE</title>
 
     <style>
         .flex {
@@ -12,9 +12,11 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            flex-direction: column;
             gap: 10px;
-            margin-top: 200px;
+            padding-top: 200px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 280px;
         }
 
         body {
@@ -23,9 +25,13 @@
         }
 
         .flex button {
-            padding: 30px 30px;
+            padding:30px 30px;
             margin: 2px;
             cursor: pointer;
+            font-size: 20px;
+            color: red;
+            background-color: #fffc7f;
+            border-color: transparent;
         }
 
         .for {
@@ -46,26 +52,21 @@
 </head>
 
 <body>
+
     <div class="flex">
         <h1>TIC TAC TOE</h1>
-        <div>
-            <button></button>
-            <button></button>
-            <button></button>
-        </div>
-        <div>
-            <button></button>
-            <button></button>
-            <button></button>
-        </div>
-        <div>
-            <button></button>
-            <button></button>
-            <button></button>
-        </div>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
     </div>
     <div class="for">
-        <h2>Winner : </h2>
+        <h2 id="winner">Winner : </h2>
         <button class="restart">RESTART GAME</button>
     </div>
 
